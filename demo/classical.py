@@ -179,3 +179,4 @@ measures = [
 
 pts, info, sta = mfit.solve(points, mfit.dms2rs(measures), maxiter=3, accu=0.1, db=3, dk=1, lw=1)
 print(mfit.report(pts, info, sta, fmt='txt'))
+mfit.plot(pts, info, sta)
