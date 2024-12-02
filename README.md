@@ -129,7 +129,7 @@ print(mfit.report(pts, info, sta, fmt='txt'))
 
 ## 详细文档
 
-1. [数据说明](.doc/ioformat.md) : 点数据，观测数据，成果数据的格式说明
-2. [经典案例](.doc/classical.md) : 侧边，测角，侧向，约束平差案例
+1. [数据说明](doc/ioformat.md) : 点数据，观测数据，成果数据的格式说明
+2. [经典案例](doc/classical.md) : 侧边，测角，侧向，约束平差案例
 3. 特色案例：
 4. 数据转换：
