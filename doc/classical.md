@@ -31,7 +31,7 @@ print(mfit.report(pts, info, sta))
 
 | name | x     | y     | h        | type  | dxx   | dxy   | dyy   | dhh   |
 |------|-------|-------|----------|-------|-------|-------|-------|-------|
-| A    | 0.0000| 0.0000| 237.4830 | True  | nan   | nan   | nan   | 0.0000|
+| A    | 0.0000| 0.0000| 237.4830 | True  | nan   | nan   | nan   | nan   |
 | B    | 0.0000| 0.0000| 243.3299 | False | nan   | nan   | nan   | 2.0615|
 | C    | 0.0000| 0.0000| 247.1210 | False | nan   | nan   | nan   | 1.6860|
 | D    | 0.0000| 0.0000| 239.7457 | False | nan   | nan   | nan   | 1.7120|
