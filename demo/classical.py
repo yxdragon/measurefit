@@ -19,7 +19,7 @@ measures = [
 ]
 
 pts, info, sta = mfit.solve(points, measures, db=1, dk=1, da=1)
-print(mfit.report(pts, info, sta, fmt='txt'))
+print(mfit.report(pts, info, sta))
 
 
 print('\n测向网平差演示，武汉大学，误差理论于测量平差基础（第三版） 120页 例7-3', '\n'+'='*98)
@@ -51,7 +51,7 @@ measures = [
 ]
 
 pts, info, sta = mfit.solve(points, mfit.dms2rs(measures), db=1, dk=1, da=1)
-print(mfit.report(pts, info, sta, fmt='txt'))
+print(mfit.report(pts, info, sta))
 
 
 print('\n测角网平差演示，武汉大学，误差理论于测量平差基础（第三版） 123页 例7-4', '\n'+'='*98)
@@ -72,7 +72,7 @@ measures = [
 ]
 
 pts, info, sta = mfit.solve(points, mfit.dms2rs(measures), db=1, dk=1, da=1)
-print(mfit.report(pts, info, sta, fmt='txt'))
+print(mfit.report(pts, info, sta))
 
 
 print('\n测角网平差演示，武汉大学，误差理论于测量平差基础（第三版） 140页 例7-9', '\n'+'='*98)
@@ -107,7 +107,7 @@ measures = [
 ]
 
 pts, info, sta = mfit.solve(points, mfit.dms2rs(measures), da=1)
-print(mfit.report(pts, info, sta, fmt='txt'))
+print(mfit.report(pts, info, sta))
 
 
 print('\n测边网平差演示，武汉大学，误差理论于测量平差基础（第三版） 145页 例7-10', '\n'+'='*98)
@@ -139,7 +139,7 @@ measures = [
 ]
 
 pts, info, sta = mfit.solve(points, measures, maxiter=3, accu=0.1, db=3, dk=1, lw=1)
-print(mfit.report(pts, info, sta, fmt='txt'))
+print(mfit.report(pts, info, sta))
 
 
 print('\n带有距离，方向约束的测角网平差演示，武汉大学，误差理论于测量平差基础（第三版） 176页 例8-2', '\n'+'='*98)
@@ -178,5 +178,5 @@ measures = [
 ]
 
 pts, info, sta = mfit.solve(points, mfit.dms2rs(measures), maxiter=3, accu=0.1, db=3, dk=1, lw=1)
-print(mfit.report(pts, info, sta, fmt='txt'))
+print(mfit.report(pts, info, sta))
 mfit.plot(pts, info, sta)

@@ -55,13 +55,13 @@ meas = mfit.distprojs(meas, 500)
 
 print('\n高效算法到这里即可')
 rst, sta = mfit.backward_x(points, meas)
-print(mfit.report([rst], fmt='txt'))
+print(mfit.report([rst]))
 
 
 print('\n经典算法要继续拆分成基础观测')
 meas = mfit.splitmeas(meas)
 pts, info, sta = mfit.solve(points, meas, db=1, dk=1, da=1)
-print(mfit.report(pts, info, sta, fmt='txt'))
+print(mfit.report(pts, info, sta))
 
 
 

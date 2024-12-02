@@ -213,11 +213,11 @@ def solve(pts, meas, maxiter=3, accu=0.1, db=1, dk=1, da=1, iter=False, lw=2):
                 if p[0]+'.x' in idx:
                     ix, iy = [idx.index(p[0]+i) for i in ('.x', '.y')]
                     p.extend(Dx[[ix, ix, iy, iy], [ix, iy, ix, iy]])
-                else: p.extend([0, 0, 0, 0])
+                else: p.extend([np.nan]*4)
                 if p[0]+'.h' in idx:
                     ih = idx.index(p[0]+'.h')
                     p.append(Dx[ih, ih])
-                else: p.append(0)
+                else: p.append(np.nan)
                 
             pts = [tuple(i) for i in pts.values() if not 'st:' in i[0]]
             return pts, sorted([tuple(i) for i in tags]), stafter

@@ -1,7 +1,6 @@
 import sys; sys.path.append('../')
 import measurefit as mfit
 
-
 # 后方交汇
 points = [
     ('TN2', 1000, 1000, 101, True),
@@ -20,13 +19,13 @@ print('\n后方交汇(经典算法)', '\n'+'='*98)
 measx = mfit.ts2ahds(measures, 1, 1, 1, K=1)
 measx = mfit.splitmeas(measx)
 pts, info, sta = mfit.solve(points, measx, db=1, dk=1, da=1)
-print(mfit.report(pts, info, sta, fmt='txt'))
+print(mfit.report(pts, info, sta))
 
 
 print('\n后方交汇(高效算法)')
 measx = mfit.ts2ahds(measures, 1, 1, 1, K=1) # 全站仪数据转水平角，高差，平距
 rst, sta = mfit.backward_x(points, measx)
-print(mfit.report([rst], fmt='txt'))
+print(mfit.report([rst]))
 
 
 
@@ -58,7 +57,7 @@ print('\n前方交汇(经典算法)', '\n'+'='*98)
 measx = mfit.ts2ahds(meas_a+meas_b, 1, 1, 1, K=1)
 measx = mfit.splitmeas(measx)
 pts, info, sta = mfit.solve(points, measx, db=1, dk=1, da=1)
-print(mfit.report(pts, info, sta, fmt='txt'))
+print(mfit.report(pts, info, sta))
 
 
 # 改正，转高差，平距
@@ -66,7 +65,7 @@ meas = mfit.ts_adjusts(meas_a, b=0, k=1, ppm=0)
 meas = mfit.ts2ahds(meas, 1, 1, 1, K=1)
 xyh_a = mfit.polar(points, meas)
 print('\nA站极坐标(高效算法)')
-print(mfit.report(xyh_a, fmt='txt'))
+print(mfit.report(xyh_a))
 
 
 # 改正，转高差，平距
@@ -74,11 +73,11 @@ meas = mfit.ts_adjusts(meas_b, b=0, k=1, ppm=0)
 meas = mfit.ts2ahds(meas, 1, 1, 1, K=1)
 xyh_b = mfit.polar(points, meas)
 print('\nB站极坐标(高效算法)')
-print(mfit.report(xyh_b, fmt='txt'))
+print(mfit.report(xyh_b))
 
 xyh_ab = mfit.merge_xyhs([xyh_a, xyh_b])
 print('\nAB站极坐标成果融合（高效算法）')
-print(mfit.report(xyh_ab, fmt='txt'))
+print(mfit.report(xyh_ab))
 
 print('\n')
 meas = mfit.ts_adjusts(meas_a+meas_b, b=0, k=1, ppm=0) # 加乘常数改正，气象改正
@@ -86,5 +85,5 @@ meas = mfit.ts2ahds(meas, 1, 1, 1, K=1) # 全站仪数据转水平角，高差�
 
 xyh_abx = mfit.forward_x(points, meas)
 print('\nAB站前方交汇（高效算法，利用AB极坐标的结果进行融合）')
-print(mfit.report(xyh_abx, fmt='txt'))
+print(mfit.report(xyh_abx))
 

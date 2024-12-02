@@ -255,7 +255,7 @@ def merge_xyhs(xyhss):
         group[xyh[0]].append(xyh)
     return [merge_xyh(i)[0] for i in group.values()]
 
-# 前方交会，观测列表逻辑上两个一组，先定向点后测点
+# 前方交会，观测列表需要符合多个极坐标拼接起来的形式
 def forward_x(pts, meas):
     sep = [i for i in range(len(meas)) if meas[i][0]=='station']+[None]
     xyhs = [polar(pts, meas[s:e]) for s,e in zip(sep[:-1], sep[1:])]
