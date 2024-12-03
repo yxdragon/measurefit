@@ -100,53 +100,49 @@ $$\mathbf{Dx} = (A^T P^{-1} A)^{-1}$$
 
 1. **计算 $A^T P^{-1} A$**：
    
-   $$
-   A^T P^{-1} A = \begin{pmatrix}
-   A_1^T \\
-   A_2^T
-   \end{pmatrix}
-   \begin{pmatrix}
-   P_{11}^{-1} & 0 \\
-   0 & P_{22}^{-1}
-   \end{pmatrix}
-   \begin{pmatrix}
-   A_1 \\
-   A_2
-   \end{pmatrix}
-   $$
+$$
+A^T P^{-1} A = \begin{pmatrix}
+A_1^T \\
+A_2^T
+\end{pmatrix}
+\begin{pmatrix}
+P_{11}^{-1} & 0 \\
+0 & P_{22}^{-1}
+\end{pmatrix}
+\begin{pmatrix}
+A_1 \\
+A_2
+\end{pmatrix}
+$$
 
    展开后得到：
    $$A^T P^{-1} A = A_1^T P_{11}^{-1} A_1 + A_2^T P_{22}^{-1} A_2$$
 
-2. **计算 $A^T P^{-1} \mathbf{b}$**：
+1. **计算 $A^T P^{-1} \mathbf{b}$**：
    
-   $$
-   A^T P^{-1} \mathbf{b} = \begin{pmatrix}
-   A_1^T \\
-   A_2^T
-   \end{pmatrix}
-   \begin{pmatrix}
-   P_{11}^{-1} & 0 \\
-   0 & P_{22}^{-1}
-   \end{pmatrix}
-   \begin{pmatrix}
-   \mathbf{b}_1 \\
-   \mathbf{b}_2
-   \end{pmatrix}
-   $$
+$$
+A^T P^{-1} \mathbf{b} = \begin{pmatrix}
+A_1^T \\
+A_2^T
+\end{pmatrix}
+\begin{pmatrix}
+P_{11}^{-1} & 0 \\
+0 & P_{22}^{-1}
+\end{pmatrix}
+\begin{pmatrix}
+\mathbf{b}_1 \\
+\mathbf{b}_2
+\end{pmatrix}
+$$
 
    展开后得到：
    $$A^T P^{-1} \mathbf{b} = A_1^T P_{11}^{-1} \mathbf{b}_1 + A_2^T P_{22}^{-1} \mathbf{b}_2$$
 
-3. **最终解**：
+1. **最终解**：
    
-   $$
-   \mathbf{X} = (A_1^T P_{11}^{-1} A_1 + A_2^T P_{22}^{-1} A_2)^{-1} (A_1^T P_{11}^{-1} \mathbf{b}_1 + A_2^T P_{22}^{-1} \mathbf{b}_2)
-   $$
+   $$\mathbf{X} = (A_1^T P_{11}^{-1} A_1 + A_2^T P_{22}^{-1} A_2)^{-1} (A_1^T P_{11}^{-1} \mathbf{b}_1 + A_2^T P_{22}^{-1} \mathbf{b}_2)$$
    方差为：
-   $$
-   \mathbf{Dx} = (A_1^T P_{11}^{-1} A_1 + A_2^T P_{22}^{-1} A_2)^{-1}
-   $$
+   $$\mathbf{Dx} = (A_1^T P_{11}^{-1} A_1 + A_2^T P_{22}^{-1} A_2)^{-1}$$
 
 ### 简化：当A1是单位矩阵 (序贯平差，卡尔曼滤波)
 
@@ -160,12 +156,10 @@ $$\mathbf{Dx} = (A^T P^{-1} A)^{-1}$$
 
 3. **代入简化**：
    
-   $$
-   \mathbf{X} = (P_{11}^{-1} + A_2^T P_{22}^{-1} A_2)^{-1} (P_{11}^{-1} \mathbf{b}_1 + A_2^T P_{22}^{-1} \mathbf{b}_2)
-   $$
+   $$\mathbf{X} = (P_{11}^{-1} + A_2^T P_{22}^{-1} A_2)^{-1} (P_{11}^{-1} \mathbf{b}_1 + A_2^T P_{22}^{-1} \mathbf{b}_2)$$
    
    方差为：
-   $$ \mathbf{Dx} = (P_{11}^{-1} + A_2^T P_{22}^{-1} A_2)^{-1} $$
+   $$\mathbf{Dx} = (P_{11}^{-1} + A_2^T P_{22}^{-1} A_2)^{-1}$$
 
 ### 进一步简化：A1和A2都是单位矩阵（坐标融合）
 
@@ -191,24 +185,24 @@ $$\mathbf{Dx} = (A^T P^{-1} A)^{-1}$$
 ### 总结
 
 1. **原始情况**：
-   $$ \mathbf{X} = (A^T P^{-1} A)^{-1} A^T P^{-1} \mathbf{b} $$
-   $$ \mathbf{Dx} = (A^T P^{-1} A)^{-1} $$
+   $$\mathbf{X} = (A^T P^{-1} A)^{-1} A^T P^{-1} \mathbf{b}$$
+   $$\mathbf{Dx} = (A^T P^{-1} A)^{-1}$$
 2. **情况1：A1和A2都是任意矩阵**：
-   $$ \mathbf{X} = (A_1^T P_{11}^{-1} A_1 + A_2^T P_{22}^{-1} A_2)^{-1} (A_1^T P_{11}^{-1} \mathbf{b}_1 + A_2^T P_{22}^{-1} \mathbf{b}_2) $$
-   $$ \mathbf{Dx} = (A_1^T P_{11}^{-1} A_1 + A_2^T P_{22}^{-1} A_2)^{-1} $$
+   $$\mathbf{X} = (A_1^T P_{11}^{-1} A_1 + A_2^T P_{22}^{-1} A_2)^{-1} (A_1^T P_{11}^{-1} \mathbf{b}_1 + A_2^T P_{22}^{-1} \mathbf{b}_2)$$
+   $$\mathbf{Dx} = (A_1^T P_{11}^{-1} A_1 + A_2^T P_{22}^{-1} A_2)^{-1}$$
 3. **情况2：A1是单位矩阵，A2是任意矩阵**：
-   $$ \mathbf{X} = (P_{11}^{-1} + A_2^T P_{22}^{-1} A_2)^{-1} (P_{11}^{-1} \mathbf{b}_1 + A_2^T P_{22}^{-1} \mathbf{b}_2) $$
-   $$ \mathbf{DX} = (P_{11}^{-1} + A_2^T P_{22}^{-1} A_2)^{-1} $$
+   $$\mathbf{X} = (P_{11}^{-1} + A_2^T P_{22}^{-1} A_2)^{-1} (P_{11}^{-1} \mathbf{b}_1 + A_2^T P_{22}^{-1} \mathbf{b}_2)$$
+   $$\mathbf{DX} = (P_{11}^{-1} + A_2^T P_{22}^{-1} A_2)^{-1}$$
 4. **情况4：A1和A2都是单位矩阵**：
-   $$ \mathbf{X} = (P_{11}^{-1} + P_{22}^{-1})^{-1} (P_{11}^{-1} \mathbf{b}_1 + P_{22}^{-1} \mathbf{b}_2) $$
-   $$ \mathbf{Dx} = (P_{11}^{-1} + P_{22}^{-1})^{-1} $$
+   $$\mathbf{X} = (P_{11}^{-1} + P_{22}^{-1})^{-1} (P_{11}^{-1} \mathbf{b}_1 + P_{22}^{-1} \mathbf{b}_2)$$
+   $$\mathbf{Dx} = (P_{11}^{-1} + P_{22}^{-1})^{-1}$$
 
 ### 推广到更多个单位观测：
 至此我们得到了可以对多个观测结果及对应协方差直接进行融合的表达式，对应于一维情况，实质就是加权平均，高维情况变成了矩阵表达式。
  
-$$ \mathbf{X} = \left( \sum_{i=1}^k P_i^{-1}\right)^{-1} \sum_{i=1}^k P_i^{-1} \mathbf{b}_i $$
+$$\mathbf{X} = \left( \sum_{i=1}^k P_i^{-1}\right)^{-1} \sum_{i=1}^k P_i^{-1} \mathbf{b}_i$$
 
-$$ \mathbf{Dx} = \left( \sum_{i=1}^k P_i^{-1} \right)^{-1} $$
+$$\mathbf{Dx} = \left( \sum_{i=1}^k P_i^{-1} \right)^{-1}$$
 
 ## 现在主流方法的一些误区（个人理解）
 ### 1. 全站仪数据处理的定权方法
