@@ -17,16 +17,7 @@ $$
 \mathbf{P} = \begin{pmatrix}
 \sigma_\alpha^2 & 0 & 0 \\
 0 & \sigma_\alpha^2 & 0 \\
-0 & 0 & \sigma_b^2 + \sigma_k^2 \cdot l^2
-\end{pmatrix}
-$$
-
-
-$$
-\mathbf{P} = \begin{pmatrix}
-\sigma_\alpha^2 & 0 & 0 \\
-0 & \sigma_\alpha^2 & 0 \\
-0 & 0 & \sigma_b^2 + \sigma_k^2 \cdot l^2
+0 & 0 & \sigma_b^2+\sigma_k^2 * l^2
 \end{pmatrix}
 $$
 
@@ -38,6 +29,7 @@ $$
    $$d = l \cdot \cos(\beta)$$
 
 * **雅各比矩阵 $\mathbf{K_{\alpha h d}}$**：
+
 $$
 \mathbf{K_{\alpha h d}} = \begin{bmatrix}
 1 & 0 & 0 \\
@@ -57,6 +49,7 @@ $$\mathbf{D_{\alpha h d}} = \mathbf{K_{\alpha h d}} \mathbf{P} \mathbf{K_{\alpha
    $$H = H_0 + h$$
 
 * **雅各比矩阵 $\mathbf{K_{xyh}}$**：
+
 $$
 \mathbf{K_{xyh}} = \begin{bmatrix}
 -d \cdot \sin(\alpha) & 0 & \cos(\alpha) \\
@@ -77,6 +70,7 @@ $$\mathbf{D_{xyh}} = \mathbf{K_{xyh}} \mathbf{K_{\alpha h d}} \mathbf{P} \mathbf
 * **修正后的水平角观测，其中 $\theta$ 是定向点的已知方向值，$\alpha_0$ 是定向观测值**
 $$\alpha = \alpha_1 + \theta - \alpha_0$$
 * **修正后的原始观测协方差矩阵**
+
 $$
 \mathbf{P} = \begin{pmatrix}
 2\sigma_\alpha^2 & 0 & 0 \\
@@ -84,6 +78,7 @@ $$
 0 & 0 & \sigma_b^2+\sigma_k^2 * l^2
 \end{pmatrix}
 $$
+
 * **后续推导步骤不变 ……**
 ### 为什么不直接从原始观测推导出 $X,Y,H$，而通过 $\alpha,h,d$
 * 如果进行平差，$\alpha,h,d$ 可以对应成方向，水准，平距观测，直接输入平差模型
@@ -104,6 +99,7 @@ $$\mathbf{Dx} = (A^T P^{-1} A)^{-1}$$
 当两组观测之间相互独立，可以利用矩阵分块，做如下推导：
 
 1. **计算 $A^T P^{-1} A$**：
+   
    $$
    A^T P^{-1} A = \begin{pmatrix}
    A_1^T \\
@@ -123,6 +119,7 @@ $$\mathbf{Dx} = (A^T P^{-1} A)^{-1}$$
    $$A^T P^{-1} A = A_1^T P_{11}^{-1} A_1 + A_2^T P_{22}^{-1} A_2$$
 
 2. **计算 $A^T P^{-1} \mathbf{b}$**：
+   
    $$
    A^T P^{-1} \mathbf{b} = \begin{pmatrix}
    A_1^T \\
@@ -142,6 +139,7 @@ $$\mathbf{Dx} = (A^T P^{-1} A)^{-1}$$
    $$A^T P^{-1} \mathbf{b} = A_1^T P_{11}^{-1} \mathbf{b}_1 + A_2^T P_{22}^{-1} \mathbf{b}_2$$
 
 3. **最终解**：
+   
    $$
    \mathbf{X} = (A_1^T P_{11}^{-1} A_1 + A_2^T P_{22}^{-1} A_2)^{-1} (A_1^T P_{11}^{-1} \mathbf{b}_1 + A_2^T P_{22}^{-1} \mathbf{b}_2)
    $$
@@ -161,9 +159,11 @@ $$\mathbf{Dx} = (A^T P^{-1} A)^{-1}$$
    $$ A_1^T P_{11}^{-1} \mathbf{b}_1 = I^T P_{11}^{-1} \mathbf{b}_1 = P_{11}^{-1} \mathbf{b}_1 $$
 
 3. **代入简化**：
+   
    $$
    \mathbf{X} = (P_{11}^{-1} + A_2^T P_{22}^{-1} A_2)^{-1} (P_{11}^{-1} \mathbf{b}_1 + A_2^T P_{22}^{-1} \mathbf{b}_2)
    $$
+   
    方差为：
    $$ \mathbf{Dx} = (P_{11}^{-1} + A_2^T P_{22}^{-1} A_2)^{-1} $$
 
@@ -205,9 +205,9 @@ $$\mathbf{Dx} = (A^T P^{-1} A)^{-1}$$
 
 ### 推广到更多个单位观测：
 至此我们得到了可以对多个观测结果及对应协方差直接进行融合的表达式，对应于一维情况，实质就是加权平均，高维情况变成了矩阵表达式。
- $$
-\mathbf{X} = \left( \sum_{i=1}^k P_i^{-1}\right)^{-1} \sum_{i=1}^k P_i^{-1} \mathbf{b}_i 
-$$
+ 
+$$ \mathbf{X} = \left( \sum_{i=1}^k P_i^{-1}\right)^{-1} \sum_{i=1}^k P_i^{-1} \mathbf{b}_i $$
+
 $$ \mathbf{Dx} = \left( \sum_{i=1}^k P_i^{-1} \right)^{-1} $$
 
 ## 现在主流方法的一些误区（个人理解）
