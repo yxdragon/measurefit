@@ -12,13 +12,13 @@
 * **原始观测**：
 $$\alpha,\beta,l$$
 * **观测精度**：
-$$\mathbf{P} = \begin{pmatrix}
+$$
+\mathbf{P} = \begin{pmatrix}
 \sigma_\alpha^2 & 0 & 0 \\
-
 0 & \sigma_\alpha^2 & 0 \\
-
 0 & 0 & \sigma_b^2+\sigma_k^2 * l^2
-\end{pmatrix}$$
+\end{pmatrix}
+$$
 
 ### 原始观测转换为水平角，高差，平距 $\alpha, h, d$
 
@@ -92,8 +92,10 @@ $$\mathbf{Dx} = (A^T P^{-1} A)^{-1}$$
 
 ### 用分块矩阵表达，A1和A2都是任意矩阵
 当两组观测之间相互独立，可以利用矩阵分块，做如下推导：
+
 1. **计算 $A^T P^{-1} A$**：
-   $$A^T P^{-1} A = \begin{pmatrix}
+   $$
+   A^T P^{-1} A = \begin{pmatrix}
    A_1^T \\
    A_2^T
    \end{pmatrix}
@@ -104,7 +106,8 @@ $$\mathbf{Dx} = (A^T P^{-1} A)^{-1}$$
    \begin{pmatrix}
    A_1 \\
    A_2
-   \end{pmatrix}$$
+   \end{pmatrix}
+   $$
 
    展开后得到：
    $$A^T P^{-1} A = A_1^T P_{11}^{-1} A_1 + A_2^T P_{22}^{-1} A_2$$
