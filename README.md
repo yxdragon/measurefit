@@ -151,4 +151,4 @@ print(mfit.report(pts, info, sta, fmt='txt'))
 后验单位中误差: 1.2033
 
 ## 技术交流
-QQ 群：238200023，可以当作技术交流和MeasureFit客服群。讨论MeasureFit或其他任何测绘数据处理的问题。
+QQ 群：238200023，可以当作技术交流和MeasureFit客服群。讨论MeasureFit或其他任何测绘数据处理的问题。也欢迎大家把项目推荐给测量数据分析人员，以及开设平差课程的学生。
