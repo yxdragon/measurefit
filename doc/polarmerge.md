@@ -20,6 +20,15 @@ $$
 \end{pmatrix}
 $$
 
+
+$$
+\mathbf{P} = \begin{pmatrix}
+\sigma_\alpha^2 & 0 & 0 \\
+0 & \sigma_\alpha^2 & 0 \\
+0 & 0 & \sigma_b^2 + \sigma_k^2 \cdot l^2
+\end{pmatrix}
+$$
+
 ### 原始观测转换为水平角，高差，平距 $\alpha, h, d$
 
 * **表达式**：
