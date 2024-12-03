@@ -12,6 +12,7 @@
 * **原始观测**：
 $$\alpha,\beta,l$$
 * **观测精度**：
+
 $$
 \mathbf{P} = \begin{pmatrix}
 \sigma_\alpha^2 & 0 & 0 \\
