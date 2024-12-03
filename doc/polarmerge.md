@@ -14,7 +14,9 @@ $$\alpha,\beta,l$$
 * **观测精度**：
 $$\mathbf{P} = \begin{pmatrix}
 \sigma_\alpha^2 & 0 & 0 \\
+
 0 & \sigma_\alpha^2 & 0 \\
+
 0 & 0 & \sigma_b^2+\sigma_k^2 * l^2
 \end{pmatrix}$$
 
