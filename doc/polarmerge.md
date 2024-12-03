@@ -12,13 +12,11 @@
 * **原始观测**：
 $$\alpha,\beta,l$$
 * **观测精度**：
-$$
-\mathbf{P} = \begin{pmatrix}
+$$\mathbf{P} = \begin{pmatrix}
 \sigma_\alpha^2 & 0 & 0 \\
 0 & \sigma_\alpha^2 & 0 \\
 0 & 0 & \sigma_b^2+\sigma_k^2 * l^2
-\end{pmatrix}
-$$
+\end{pmatrix}$$
 
 ### 原始观测转换为水平角，高差，平距 $\alpha, h, d$
 
